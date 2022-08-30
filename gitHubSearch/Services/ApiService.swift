@@ -8,6 +8,7 @@
 
 import Foundation
 
+// github url
 extension URL {
     static let searchRepoURLString: String = "https://api.github.com/search/repositories?"
     static let sortString: String = "&sort=stars&order=desc"
@@ -63,6 +64,7 @@ extension Endpoint {
     }
 }
 
+// end point
 class SearchRepository: Endpoint {
     var url: URL
     var method: HTTPMethod
@@ -75,6 +77,7 @@ class SearchRepository: Endpoint {
         self.query = query
     }
 
+    // result featch from url
     func request(callback: @escaping (APIResult) -> Void) {
         URLSession.shared.dataTask(with: urlRequest, completionHandler: { (data, response, error) in
             if let e = error {
