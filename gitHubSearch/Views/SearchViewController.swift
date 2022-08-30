@@ -34,6 +34,9 @@ class SearchViewController: UIViewController {
     }
 }
 
+
+// for tableview data source
+
 extension SearchViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -69,12 +72,14 @@ extension SearchViewController: UITableViewDelegate {
     }
 }
 
+// search view data source
 extension SearchViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         self.timer?.invalidate()
-        self.timer = Timer.scheduledTimer(timeInterval: 0.3, target: self, selector: #selector(self.search), userInfo: nil, repeats: false)
+        self.timer = Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(self.search), userInfo: nil, repeats: false)
     }
 
+    // search function
     @objc func search() {
         self.repositories.removeAll()
         guard let query = self.searchBar.text else { return }

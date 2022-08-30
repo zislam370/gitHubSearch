@@ -31,6 +31,7 @@ class RepoDetailsViewController: UIViewController {
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(self.openInSafari))
     }
 
+    // open defult browser 
     @objc func openInSafari() {
         guard let url = url else { return }
         UIApplication.shared.open(url, options: [:], completionHandler: nil)

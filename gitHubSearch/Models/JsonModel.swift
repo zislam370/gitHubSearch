@@ -11,7 +11,7 @@ protocol JSONDecodable {
     init(JSON: JSONObject) throws
 }
 
-
+//object for getting some type of value from a JSON
 enum JSONDecodeError: Error, CustomDebugStringConvertible {
     case missingRequiredKey(String)
     case unexpectedType(key: String, expected: Any.Type, actual: Any.Type)
@@ -29,7 +29,7 @@ enum JSONDecodeError: Error, CustomDebugStringConvertible {
     }
 }
 
-
+//convert JSON value
 protocol JSONValueConverter {
     associatedtype FromType
     associatedtype ToType
@@ -47,7 +47,7 @@ struct DefaultConverter<T>: JSONValueConverter {
     }
 }
 
-
+//Convert a JSON object to some JSONDecodable type
 struct ObjectConverter<T: JSONDecodable>: JSONValueConverter {
     typealias FromType = [String: AnyObject]
     typealias ToType = T
@@ -67,6 +67,7 @@ struct ArrayConverter<T: JSONDecodable>: JSONValueConverter {
     }
 }
 
+//JSON primitive value
 
 protocol JSONPrimitive {}
 
@@ -84,7 +85,7 @@ protocol JSONConvertible {
 
 struct JSONObject {
 
-   
+   // A Dictionary of the original JSON objects
     let JSON: [String: AnyObject]
 
     init(JSON: [String: AnyObject]) {
@@ -163,6 +164,7 @@ extension Date: JSONConvertible {
     }
 }
 
+// create NSURL and NSDate
 struct URLConverter: JSONValueConverter {
     typealias FromType = String
     typealias ToType = URL
