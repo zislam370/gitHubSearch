@@ -62,7 +62,7 @@ extension SearchViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         guard let sb = self.storyboard else { return }
-        let vc = sb.instantiateViewController(withIdentifier: "RepoPageVC") as! RepoPageVC
+        let vc = sb.instantiateViewController(withIdentifier: "RepoDetailsViewController") as! RepoDetailsViewController
         vc.url = repositories[indexPath.row].htmlUrl
         vc.title = repositories[indexPath.row].fullName
         self.navigationController?.pushViewController(vc, animated: true)

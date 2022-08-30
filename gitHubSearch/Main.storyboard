@@ -62,10 +62,10 @@
             </objects>
             <point key="canvasLocation" x="999.20000000000005" y="792.95352323838085"/>
         </scene>
-        <!--Repo PageVC-->
+        <!--Repo Details View Controller-->
         <scene sceneID="zCo-S8-wgF">
             <objects>
-                <viewController storyboardIdentifier="RepoPageVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="70p-Br-Xz0" customClass="RepoPageVC" customModule="gitHubSearch" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RepoDetailsViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="70p-Br-Xz0" customClass="RepoDetailsViewController" customModule="gitHubSearch" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="bwb-jy-4UZ"/>
                         <viewControllerLayoutGuide type="bottom" id="dvA-Pj-d9d"/>
