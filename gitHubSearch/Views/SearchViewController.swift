@@ -9,21 +9,87 @@ import UIKit
 
 class SearchViewController: UIViewController {
 
+    // - Properties
+
+    fileprivate var repositories: [Repository] = [] {
+        didSet {
+            self.repoTableView.reloadData()
+        }
+    }
+    var timer: Timer?
+
+    // - User Interface
+
+    @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet private weak var repoTableView: UITableView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+
+    // - View Life Cycle
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        self.activityIndicator.hidesWhenStopped = true
+        self.activityIndicator.isHidden = true
     }
-    
+}
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+extension SearchViewController: UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
     }
-    */
 
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.repositories.count
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "cell")
+        cell.textLabel?.text = repositories[indexPath.row].fullName
+        if let language = repositories[indexPath.row].language {
+            cell.detailTextLabel?.text = language
+        }
+        let starLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 22, height: 22))
+        starLabel.text = "★\(self.repositories[indexPath.row].stargazersCount)"
+        starLabel.textAlignment = .left
+        starLabel.sizeToFit()
+        cell.accessoryView = starLabel
+        return cell
+    }
+}
+
+extension SearchViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        guard let sb = self.storyboard else { return }
+        let vc = sb.instantiateViewController(withIdentifier: "RepoPageVC") as! RepoPageVC
+        vc.url = repositories[indexPath.row].htmlUrl
+        vc.title = repositories[indexPath.row].fullName
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+}
+
+extension SearchViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        self.timer?.invalidate()
+        self.timer = Timer.scheduledTimer(timeInterval: 0.3, target: self, selector: #selector(self.search), userInfo: nil, repeats: false)
+    }
+
+    @objc func search() {
+        self.repositories.removeAll()
+        guard let query = self.searchBar.text else { return }
+        if query == "" { return }
+        self.activityIndicator.startAnimating()
+        SearchRepository(query: query).request { (result) in
+            switch result {
+            case .success(let response):
+                DispatchQueue.main.async {
+                    self.repositories.append(contentsOf: response.items)
+                    self.activityIndicator.stopAnimating()
+                }
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+    }
 }
