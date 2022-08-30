@@ -15,6 +15,7 @@
 		31F3CA6F28BE075E000B62DC /* gitHubSearchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31F3CA6E28BE075E000B62DC /* gitHubSearchTests.swift */; };
 		31F3CA7928BE075E000B62DC /* gitHubSearchUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31F3CA7828BE075E000B62DC /* gitHubSearchUITests.swift */; };
 		31F3CA7B28BE075E000B62DC /* gitHubSearchUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31F3CA7A28BE075E000B62DC /* gitHubSearchUITestsLaunchTests.swift */; };
+		31F3CA8D28BE225D000B62DC /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31F3CA8C28BE225D000B62DC /* SearchViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		31F3CA7428BE075E000B62DC /* gitHubSearchUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = gitHubSearchUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		31F3CA7828BE075E000B62DC /* gitHubSearchUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gitHubSearchUITests.swift; sourceTree = "<group>"; };
 		31F3CA7A28BE075E000B62DC /* gitHubSearchUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gitHubSearchUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		31F3CA8C28BE225D000B62DC /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,6 +147,7 @@
 		31F3CA8A28BE20BB000B62DC /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				31F3CA8C28BE225D000B62DC /* SearchViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -287,6 +290,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				31F3CA8D28BE225D000B62DC /* SearchViewController.swift in Sources */,
 				31F3CA5828BE075B000B62DC /* AppDelegate.swift in Sources */,
 				31F3CA5A28BE075B000B62DC /* SceneDelegate.swift in Sources */,
 			);
