@@ -16,6 +16,8 @@
 		31F3CA7B28BE075E000B62DC /* gitHubSearchUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31F3CA7A28BE075E000B62DC /* gitHubSearchUITestsLaunchTests.swift */; };
 		31F3CA8D28BE225D000B62DC /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31F3CA8C28BE225D000B62DC /* SearchViewController.swift */; };
 		31F3CA8F28BE2350000B62DC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 31F3CA8E28BE2350000B62DC /* Main.storyboard */; };
+		31F3CA9128BE23FD000B62DC /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31F3CA9028BE23FD000B62DC /* ApiService.swift */; };
+		31F3CA9328BE24D6000B62DC /* JsonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31F3CA9228BE24D6000B62DC /* JsonModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,8 @@
 		31F3CA7A28BE075E000B62DC /* gitHubSearchUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gitHubSearchUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		31F3CA8C28BE225D000B62DC /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		31F3CA8E28BE2350000B62DC /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		31F3CA9028BE23FD000B62DC /* ApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
+		31F3CA9228BE24D6000B62DC /* JsonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +137,7 @@
 		31F3CA8728BE2084000B62DC /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				31F3CA9028BE23FD000B62DC /* ApiService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -140,6 +145,7 @@
 		31F3CA8928BE20B2000B62DC /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				31F3CA9228BE24D6000B62DC /* JsonModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -290,8 +296,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				31F3CA9328BE24D6000B62DC /* JsonModel.swift in Sources */,
 				31F3CA8D28BE225D000B62DC /* SearchViewController.swift in Sources */,
 				31F3CA5828BE075B000B62DC /* AppDelegate.swift in Sources */,
+				31F3CA9128BE23FD000B62DC /* ApiService.swift in Sources */,
 				31F3CA5A28BE075B000B62DC /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
