@@ -17,7 +17,7 @@ class SearchViewController: UIViewController {
         }
     }
     var timer: Timer?
-    let viewModel = ViewModel()
+    let viewModel = SearchViewModel()
     // - User Interface
 
     @IBOutlet weak var searchBar: UISearchBar!
@@ -94,7 +94,7 @@ extension SearchViewController: UISearchBarDelegate {
                 }
             case .failure(let error):
                 print(error.localizedDescription)
-                self.viewModel.showMessage(title: "ERROR", msg: "Somthing is wrong", on: self)
+                self.viewModel.showMessage(title: AppConstants.errorTitle, msg: AppConstants.errorMessage, on: self)
             }
         }
     }

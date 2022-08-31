@@ -8,11 +8,11 @@
 import Foundation
 import UIKit
 
-class ViewModel{
+class SearchViewModel{
     
     func showMessage(title: String, msg: String, `on` controller: UIViewController) {
         let alert = UIAlertController(title: title, message: msg, preferredStyle: UIAlertControllerStyle.alert)
-        alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
+        alert.addAction(UIAlertAction(title: AppConstants.okButtonTitle, style: UIAlertActionStyle.default, handler: nil))
         controller.present(alert, animated: true, completion: nil)
         }
     
