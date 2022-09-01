@@ -77,7 +77,7 @@ class SearchRepository: Endpoint {
         self.query = query
     }
     
-    // result fatch from url
+    // result fetch from url
     func request(callback: @escaping (APIResult) -> Void) {
         URLSession.shared.dataTask(with: urlRequest, completionHandler: { (data, response, error) in
             if let e = error {
