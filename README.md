@@ -2,8 +2,9 @@
 
 Note:
 
-1. Used incremental search
-2. API request throttling time is 5 second
+1. Used MVVM architecture
+2. Used incremental search
+3. API request throttling time is 5 second
 
 Video link:
 
