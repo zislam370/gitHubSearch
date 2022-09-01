@@ -30,7 +30,7 @@ enum APIResult {
 
 struct SearchResult: JSONDecodable {
     let items: [Repository]
-
+    
     init(JSON: JSONObject) throws {
         self.items = try JSON.get("items")
     }
@@ -41,7 +41,7 @@ struct Repository: JSONDecodable {
     let fullName: String
     let language: String?
     let stargazersCount: Int
-
+    
     init(JSON: JSONObject) throws {
         self.htmlUrl = try JSON.get("html_url")
         self.fullName = try JSON.get("full_name")
@@ -69,15 +69,15 @@ class SearchRepository: Endpoint {
     var url: URL
     var method: HTTPMethod
     var query: String
-
+    
     init(query: String) {
         guard let url = URL(string: URL.searchRepoURLString + "q=\(query)" + URL.sortString) else { fatalError("Could not configure URL") }
         self.url = url
         self.method = .GET
         self.query = query
     }
-
-    // result featch from url
+    
+    // result fatch from url
     func request(callback: @escaping (APIResult) -> Void) {
         URLSession.shared.dataTask(with: urlRequest, completionHandler: { (data, response, error) in
             if let e = error {
