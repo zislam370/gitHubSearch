@@ -33,7 +33,7 @@ class SearchViewController: UIViewController {
 }
 
 
-// for tableview data source
+// Mark: tableview data source
 extension SearchViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
