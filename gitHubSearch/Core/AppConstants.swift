@@ -12,6 +12,8 @@ class AppConstants {
     static let okButtonTitle = "Ok"
     static let errorTitle = "ERROR"
     static let errorMessage = "Something is wrong"
+    static let throttlingTime = 0.5
+    
     
     
 }

@@ -74,7 +74,7 @@ extension SearchViewController: UITableViewDelegate {
 extension SearchViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         self.timer?.invalidate()
-        self.timer = Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(self.search), userInfo: nil, repeats: false)
+        self.timer = Timer.scheduledTimer(timeInterval: AppConstants.throttlingTime, target: self, selector: #selector(self.search), userInfo: nil, repeats: false)
     }
     
     // search function
