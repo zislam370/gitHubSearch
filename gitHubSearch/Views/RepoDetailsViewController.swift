@@ -11,6 +11,7 @@ import WebKit
 class RepoDetailsViewController: UIViewController {
     // Properties
     var url: URL?
+    var viewModel = SearchViewModel()
     //  User Interface
     @IBOutlet var repoPageWebView: WKWebView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
@@ -42,6 +43,6 @@ extension RepoDetailsViewController: WKNavigationDelegate {
 }
 
  func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
-
+     viewModel.showMessage(title: AppConstants.errorTitle, msg: AppConstants.errorMessage, on: self)
 }
 }
