@@ -74,31 +74,31 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uKi-t1-rIc">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hr6-FD-8pc">
+                                <rect key="frame" x="16" y="0.0" width="343" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <connections>
-                                    <outlet property="delegate" destination="70p-Br-Xz0" id="p9l-e0-oMv"/>
-                                </connections>
-                            </webView>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="WdH-Ww-RZU">
                                 <rect key="frame" x="177.5" y="323.5" width="20" height="20"/>
                             </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="dvA-Pj-d9d" firstAttribute="top" secondItem="uKi-t1-rIc" secondAttribute="bottom" id="Ce9-Tf-jKy"/>
                             <constraint firstItem="WdH-Ww-RZU" firstAttribute="centerY" secondItem="jLz-U3-eea" secondAttribute="centerY" id="EEh-vZ-e2u"/>
-                            <constraint firstAttribute="trailing" secondItem="uKi-t1-rIc" secondAttribute="trailing" id="EU4-7o-Psb"/>
-                            <constraint firstItem="uKi-t1-rIc" firstAttribute="leading" secondItem="jLz-U3-eea" secondAttribute="leading" id="Fof-dP-3A2"/>
-                            <constraint firstItem="uKi-t1-rIc" firstAttribute="top" secondItem="jLz-U3-eea" secondAttribute="top" id="KGk-WP-2iP"/>
                             <constraint firstItem="WdH-Ww-RZU" firstAttribute="centerX" secondItem="jLz-U3-eea" secondAttribute="centerX" id="L07-lX-Cb2"/>
+                            <constraint firstItem="dvA-Pj-d9d" firstAttribute="top" secondItem="hr6-FD-8pc" secondAttribute="bottom" id="PC6-WN-GqX"/>
+                            <constraint firstItem="hr6-FD-8pc" firstAttribute="top" secondItem="bwb-jy-4UZ" secondAttribute="bottom" id="k05-Tl-hrI"/>
+                            <constraint firstItem="hr6-FD-8pc" firstAttribute="leading" secondItem="jLz-U3-eea" secondAttribute="leadingMargin" id="oIK-qW-TWr"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="hr6-FD-8pc" secondAttribute="trailing" id="tZU-m1-Dsx"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="activityIndicator" destination="WdH-Ww-RZU" id="VsR-MA-gmo"/>
-                        <outlet property="repoPageWebView" destination="uKi-t1-rIc" id="RTp-yb-P1K"/>
+                        <outlet property="repoPageWebView" destination="hr6-FD-8pc" id="Kqq-Lv-mFh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="t4m-Ij-dGi" userLabel="First Responder" sceneMemberID="firstResponder"/>

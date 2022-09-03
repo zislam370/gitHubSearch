@@ -6,12 +6,13 @@
 //
 
 import UIKit
+import WebKit
 
 class RepoDetailsViewController: UIViewController {
     // Properties
     var url: URL?
     //  User Interface
-    @IBOutlet private weak var repoPageWebView: UIWebView!
+    @IBOutlet var repoPageWebView: WKWebView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     //  View Life Cycle
     override func viewDidLoad() {
@@ -19,7 +20,9 @@ class RepoDetailsViewController: UIViewController {
         self.activityIndicator.hidesWhenStopped = true
         self.activityIndicator.isHidden = true
         guard let url = url else { return }
-        self.repoPageWebView.loadRequest(URLRequest(url: url))
+        repoPageWebView.navigationDelegate = self
+        repoPageWebView.isUserInteractionEnabled = true
+        self.repoPageWebView.load(URLRequest(url: url))
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(self.openInSafari))
     }
     // open defult browser 
@@ -29,11 +32,16 @@ class RepoDetailsViewController: UIViewController {
     }
 }
 
-extension RepoDetailsViewController: UIWebViewDelegate {
-    func webViewDidStartLoad(_ webView: UIWebView) {
-        activityIndicator.startAnimating()
-    }
-    func webViewDidFinishLoad(_ webView: UIWebView) {
-        activityIndicator.stopAnimating()
-    }
+extension RepoDetailsViewController: WKNavigationDelegate {
+ func webView(_ webView: WKWebView, didCommit navigation: WKNavigation!) {
+     activityIndicator.startAnimating()
+}
+
+ func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+     activityIndicator.stopAnimating()
+}
+
+ func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
+
+}
 }

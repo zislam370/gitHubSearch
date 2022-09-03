@@ -251,6 +251,7 @@
 				TargetAttributes = {
 					31F3CA5328BE075B000B62DC = {
 						CreatedOnToolsVersion = 13.4.1;
+						LastSwiftMigration = 1340;
 					};
 					31F3CA6928BE075E000B62DC = {
 						CreatedOnToolsVersion = 13.4.1;
@@ -325,7 +326,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n";
+			shellScript = "# Type a script or drag a script file from your workspace to insert its \n\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -525,7 +526,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.zahid.gitHubSearch;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -552,7 +553,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.zahid.gitHubSearch;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
