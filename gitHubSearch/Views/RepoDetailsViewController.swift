@@ -26,7 +26,7 @@ class RepoDetailsViewController: UIViewController {
         self.repoPageWebView.load(URLRequest(url: url))
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(self.openInSafari))
     }
-    // open defult browser 
+    // Open defult browser 
     @objc func openInSafari() {
         guard let url = url else { return }
         UIApplication.shared.open(url, options: [:], completionHandler: nil)
