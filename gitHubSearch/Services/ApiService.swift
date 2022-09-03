@@ -5,7 +5,6 @@
 //  Created by Zahidul Islam on 2022/08/30.
 //
 
-
 import Foundation
 
 // github url
@@ -30,7 +29,6 @@ enum APIResult {
 
 struct SearchResult: JSONDecodable {
     let items: [Repository]
-    
     init(JSON: JSONObject) throws {
         self.items = try JSON.get("items")
     }
@@ -41,7 +39,6 @@ struct Repository: JSONDecodable {
     let fullName: String
     let language: String?
     let stargazersCount: Int
-    
     init(JSON: JSONObject) throws {
         self.htmlUrl = try JSON.get("html_url")
         self.fullName = try JSON.get("full_name")
@@ -69,19 +66,17 @@ class SearchRepository: Endpoint {
     var url: URL
     var method: HTTPMethod
     var query: String
-    
     init(query: String) {
         guard let url = URL(string: URL.searchRepoURLString + "q=\(query)" + URL.sortString) else { fatalError("Could not configure URL") }
         self.url = url
         self.method = .GET
         self.query = query
     }
-    
     // result fetch from url
     func request(callback: @escaping (APIResult) -> Void) {
         URLSession.shared.dataTask(with: urlRequest, completionHandler: { (data, response, error) in
-            if let e = error {
-                callback(.failure(e))
+            if let err = error {
+                callback(.failure(err))
             } else if let data = data {
                 do {
                     guard let dic = try JSONSerialization.jsonObject(with: data, options: []) as? [String: AnyObject] else {
@@ -99,5 +94,3 @@ class SearchRepository: Endpoint {
         }).resume()
     }
 }
-
-

@@ -8,7 +8,6 @@
 import UIKit
 
 class SearchViewController: UIViewController {
-    
     // Properties
     fileprivate var repositories: [Repository] = [] {
         didSet {
@@ -17,32 +16,26 @@ class SearchViewController: UIViewController {
     }
     var timer: Timer?
     let viewModel = SearchViewModel()
-    
     // User Interface
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet private weak var repoTableView: UITableView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
-    
     // View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         self.activityIndicator.hidesWhenStopped = true
         self.activityIndicator.isHidden = true
     }
 }
 
-
-// Mark: tableview data source
+// MARK: tableview data source
 extension SearchViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.repositories.count
     }
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "cell")
         cell.textLabel?.text = repositories[indexPath.row].fullName
@@ -58,25 +51,24 @@ extension SearchViewController: UITableViewDataSource {
     }
 }
 
-// Mark: UITableView Delegate
+// MARK: UITableView Delegate
 extension SearchViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        guard let sb = self.storyboard else { return }
-        let vc = sb.instantiateViewController(withIdentifier: "RepoDetailsViewController") as! RepoDetailsViewController
-        vc.url = repositories[indexPath.row].htmlUrl
-        vc.title = repositories[indexPath.row].fullName
-        self.navigationController?.pushViewController(vc, animated: true)
+        guard let view = self.storyboard else { return }
+        let viewController = view.instantiateViewController(withIdentifier: "RepoDetailsViewController") as! RepoDetailsViewController
+        viewController.url = repositories[indexPath.row].htmlUrl
+        viewController.title = repositories[indexPath.row].fullName
+        self.navigationController?.pushViewController(viewController, animated: true)
     }
 }
 
-// Mark: UISearchBar Delegate
+// MARK: UISearchBar Delegate
 extension SearchViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         self.timer?.invalidate()
         self.timer = Timer.scheduledTimer(timeInterval: AppConstants.throttlingTime, target: self, selector: #selector(self.search), userInfo: nil, repeats: false)
     }
-    
     // search function
     @objc func search() {
         self.repositories.removeAll()

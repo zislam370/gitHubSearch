@@ -7,7 +7,7 @@
 
 import XCTest
 
-class gitHubSearchUITestsLaunchTests: XCTestCase {
+class GitHubSearchUITestsLaunchTests: XCTestCase {
 
     override class var runsForEachTargetApplicationUIConfiguration: Bool {
         true
